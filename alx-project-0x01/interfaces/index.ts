@@ -1,4 +1,4 @@
-export interface UserData {
+export interface UserProps {
     id?: number;
     name: string;
     username: string;
@@ -25,8 +25,8 @@ export interface UserData {
 export interface UserModalProps {
     isOpen: boolean;
     onClose: () => void;
-    onAddUser: (newUser: UserData) => void;
-    onSubmit: (newUser: UserData) => void;
+    onAddUser: (newUser: UserProps) => void;
+    onSubmit: (post: UserProps) => void;
   }
 
 

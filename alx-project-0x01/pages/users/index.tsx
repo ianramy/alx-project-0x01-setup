@@ -1,18 +1,18 @@
 import Header from '@/components/layout/Header';
 import UserCard from '@/components/common/UserCard';
 import UserModal from '@/components/common/UserModal';
-import { UserData } from '@/interfaces';
+import { UserProps } from '@/interfaces';
 import { useState } from 'react';
 
 interface UsersPageProps {
-  users: UserData[];
+  users: UserProps[];
 }
 
 const Users: React.FC<UsersPageProps> = ({ users }) => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const [userList, setUserList] = useState<UserData[]>(users);
+  const [userList, setUserList] = useState<UserProps[]>(users);
 
-  const handleAddUser = (newUser: UserData) => {
+  const handleAddUser = (newUser: UserProps) => {
     const newId = userList.length + 1;
     setUserList([...userList, { ...newUser, id: newId }]);
   };

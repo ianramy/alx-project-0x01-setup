@@ -1,6 +1,6 @@
-import { UserData } from '@/interfaces';
+import { UserProps } from '@/interfaces';
 
-const UserCard: React.FC<UserData> = ({ name, username, email, phone, website, company }) => {
+const UserCard: React.FC<UserProps> = ({ name, username, email, phone, website, company }) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
       <h2 className="text-xl font-bold text-gray-800">{name} (@{username})</h2>

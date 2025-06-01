@@ -1,9 +1,9 @@
-import { UserData, UserModalProps } from '../../interfaces';
+import { UserProps, UserModalProps } from '../../interfaces';
 import { useState } from 'react';
 
 
 const UserModal: React.FC<UserModalProps> = ({ isOpen, onClose, onAddUser, onSubmit }) => {
-  const [user, setUser] = useState<UserData>({
+  const [user, setUser] = useState<UserProps>({
     name: '',
     username: '',
     email: '',
@@ -27,7 +27,7 @@ const UserModal: React.FC<UserModalProps> = ({ isOpen, onClose, onAddUser, onSub
     const { name, value } = e.target;
     if (name.includes('.')) {
       const [group, field] = name.split('.');
-    setUser((prev: UserData) => ({
+    setUser((prev: UserProps) => ({
       ...prev,
       [group]: {
         ...(prev as Record<string, any>)[group],
@@ -35,7 +35,7 @@ const UserModal: React.FC<UserModalProps> = ({ isOpen, onClose, onAddUser, onSub
       },
     }));
     } else {
-    setUser((prev: UserData) => ({ ...prev, [name]: value }));
+    setUser((prev: UserProps) => ({ ...prev, [name]: value }));
     }
   };
 
