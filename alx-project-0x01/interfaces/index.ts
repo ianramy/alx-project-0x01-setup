@@ -20,6 +20,7 @@ export interface UserProps {
       catchPhrase: string;
       bs: string;
     };
+    posts?: PostProps[];
   }
   
 export interface UserModalProps {
@@ -31,16 +32,18 @@ export interface UserModalProps {
 
 
 export interface PostData {
-    id: number;
+    id?: number;
+    userId: number;
+    author: string;
     title: string;
     body: string;
-    author: string;
     date: string;
     excerpt: string;
 }
 
 export interface PostProps {
-    id: number;
+    id?: number;
+    userId: number;
     title: string;
     body?: string;
     author: string;

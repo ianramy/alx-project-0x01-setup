@@ -45,9 +45,22 @@ const Users: React.FC<UsersPageProps> = ({ users }) => {
 };
 
 export async function getStaticProps() {
-  const response = await fetch('https://jsonplaceholder.typicode.com/users');
-  const users = await response.json();
-  return { props: { users } };
-}
+    const [usersResponse, postsResponse] = await Promise.all([
+      fetch('https://jsonplaceholder.typicode.com/users'),
+      fetch('https://jsonplaceholder.typicode.com/posts'),
+    ]);
+  
+    const users = await usersResponse.json();
+    const posts = await postsResponse.json();
+  
+    const usersWithPosts = users.map((user: any) => ({
+      ...user,
+      userId: user.id,
+      posts: posts.filter((post: any) => post.userId === user.id),
+    }));
+  
+    return { props: { users: usersWithPosts } };
+  }
+  
 
 export default Users;

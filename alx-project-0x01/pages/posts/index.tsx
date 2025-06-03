@@ -14,9 +14,10 @@ const Posts: React.FC<PostsPageProps> = ({ posts }) => {
   const [postList, setPostList] = useState<PostData[]>(
     posts.map((post) => ({
         id: post.id,
+        userId: post.userId,
+        author: String(post.userId),
         title: post.title,
         body: post.body ?? '',
-        author: 'Anonymous',
         date: new Date().toISOString(),
         excerpt: post.body?.slice(0, 100) + '...'
       }))
@@ -42,9 +43,10 @@ const Posts: React.FC<PostsPageProps> = ({ posts }) => {
             <PostCard
               key={post.id}
               id={post.id ?? 0}
+              userId={post.userId ?? 0}
+              author={post.author}
               title={post.title}
               body={post.body}
-              author={post.author}
               date={post.date}
               excerpt={post.excerpt}
             />

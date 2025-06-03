@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { PostModalProps } from '@/interfaces';
+import { PostData, PostModalProps } from '@/interfaces';
 
 const PostModal: React.FC<PostModalProps> = ({
     isOpen,
@@ -41,7 +41,7 @@ const PostModal: React.FC<PostModalProps> = ({
                 author: 'Anonymous',
                 date: new Date().toISOString(),
                 excerpt: content.trim().slice(0, 100)
-            });
+              } as PostData);
             setContent('');
             onClose();
         }

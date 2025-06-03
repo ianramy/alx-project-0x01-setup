@@ -1,8 +1,7 @@
 import React from 'react';
 import { PostProps } from '@/interfaces';
 
-
-const PostCard: React.FC<PostProps> = ({ title, author, date, excerpt, onClick }) => {
+const PostCard: React.FC<PostProps> = ({ id, userId, title, author, date, excerpt, onClick }) => {
     return (
         <div
             className="post-card"
@@ -24,6 +23,12 @@ const PostCard: React.FC<PostProps> = ({ title, author, date, excerpt, onClick }
             <div style={{ color: '#888', fontSize: 14, marginBottom: 8 }}>
                 By {author} &middot; {date}
             </div>
+            <p style={{ margin: '4px 0', color: '#666', fontSize: 14 }}>
+                User ID: {userId}
+            </p>
+            <p style={{ margin: '4px 0 10px 0', color: '#666', fontSize: 14 }}>
+                Post ID: {id}
+            </p>
             <p style={{ margin: 0, color: '#444', fontSize: 16 }}>{excerpt}</p>
         </div>
     );
