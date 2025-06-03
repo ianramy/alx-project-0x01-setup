@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 const UserModal: React.FC<UserModalProps> = ({ isOpen, onClose, onAddUser, onSubmit }) => {
   const [user, setUser] = useState<UserProps>({
+    userId: 0,
     name: '',
     username: '',
     email: '',

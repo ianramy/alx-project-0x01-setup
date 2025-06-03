@@ -14,7 +14,7 @@ const Users: React.FC<UsersPageProps> = ({ users }) => {
 
   const handleAddUser = (newUser: UserProps) => {
     const newId = userList.length + 1;
-    setUserList([...userList, { ...newUser, id: newId }]);
+    setUserList([...userList, { ...newUser, userId: newId }]);
   };
 
   return (
@@ -29,7 +29,7 @@ const Users: React.FC<UsersPageProps> = ({ users }) => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {userList.map((user) => (
-            <UserCard key={user.id} {...user} />
+            <UserCard key={user.userId} {...user} />
           ))}
         </div>
       </main>
