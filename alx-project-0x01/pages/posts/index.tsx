@@ -22,6 +22,7 @@ const Posts: React.FC<PostsPageProps> = ({ posts }) => {
         excerpt: post.body?.slice(0, 100) + '...'
       }))
   );
+  const [post, setPost] = useState<PostData | null>(null);
 
   const handleAddPost = (newPost: PostData) => {
     const newId = postList.length + 1;

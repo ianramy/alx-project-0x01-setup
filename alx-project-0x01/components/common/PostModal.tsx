@@ -1,13 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { PostData, PostModalProps } from '@/interfaces';
 
-const PostModal: React.FC<PostModalProps> = ({
-    isOpen,
-    onClose,
-    onSubmit,
-    initialContent = '',
-    title = 'Create Post',
-}) => {
+const PostModal = <T extends PostData>({ 
+    isOpen, 
+    onClose, 
+    onSubmit, 
+    initialContent = '', 
+    title = 'Create Post' 
+}: PostModalProps): React.ReactElement | null => {
     const [content, setContent] = useState(initialContent);
     const modalRef = useRef<HTMLDivElement>(null);
 
